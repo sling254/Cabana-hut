@@ -1,0 +1,8 @@
+.order-section{
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#price{
+    color:blue;
+}
