@@ -1,3 +1,4 @@
+/* style navbar */
 .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show>.nav-link {
     color: #86EE35;
 }
@@ -6,6 +7,13 @@
 }
 .navbar-dark .navbar-brand {
     color: #86EE35;
+}
+/* style hero secrion */
+.carousel-caption h5{
+    text-transform: uppercase;
+}
+.carousel-caption p{
+    text-decoration: wavy;
 }
 .order-section{
     background-image: url("../img/background.jpg");
