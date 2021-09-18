@@ -111,3 +111,39 @@ class UI{
 }
 //instanciate the Ui class
 const ui = new UI();
+
+
+function peporoniOrder(){
+    peporoniQuantity = $("#glutenfree-quantity").val();
+    glutenFreeSize = $("#glutenfree-size").val();
+    crust = $("#crust").val();
+    delivery = $("#delivery").val();    
+    console.log("this is the delivery"+ delivery);
+    var toppings = [];
+    $.each($("input[name='peporoni']:checked"), function(){
+        toppings.push($(this).val());
+    });
+    console.log(toppings);
+    //instanciate
+    const peporoniOrder = new CreteOrder(peporoniQuantity,glutenFreeSize,toppings,crust,delivery);    
+    console.log(peporoniOrder);
+    ui.getPrice(peporoniOrder);    
+    displayPrice =ui.getPrice(peporoniOrder);
+    ui.displayPrice(displayPrice);
+    ui.displaySummary(peporoniOrder,displayPrice)
+
+    
+    
+
+    
+
+    
+    
+
+
+
+
+}
+
+//add event listener
+$(".peporoni-btn").click(peporoniOrder);
