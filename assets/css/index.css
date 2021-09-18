@@ -1,3 +1,12 @@
+.navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show>.nav-link {
+    color: #86EE35;
+}
+.navbar-brand{
+    font-size: 2.25rem;
+}
+.navbar-dark .navbar-brand {
+    color: #86EE35;
+}
 .order-section{
     background-image: url("../img/background.jpg");
     background-size: cover;
