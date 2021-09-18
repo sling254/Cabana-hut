@@ -132,7 +132,30 @@ function peporoniOrder(){
     ui.displayPrice(displayPrice);
     ui.displaySummary(peporoniOrder,displayPrice)
 }
+function IndianOrder(){
+    indianQuantity=$("#indian-quantity").val();
+    indianSize = $("#indian-size").val();
+    Crust = $("#indian-crust").val();
+    delivery = $("#delivery-indian").val();
+    console.log("this is the delivery"+ delivery);
+    var toppings = [];
+    $.each($("input[name='indian']:checked"), function(){
+        toppings.push($(this).val());
+    });
+    console.log(toppings);
+    const indianOrder = new CreteOrder(indianQuantity,indianSize,toppings,Crust,delivery);
+    console.log(indianOrder);
+    ui.getPrice(indianOrder);    
+    displayPrice =ui.getPrice(indianOrder);
+    ui.displayPrice(displayPrice);
+    ui.displaySummary(indianOrder,displayPrice)
+
+}
 
 
 //add event listener
 $(".peporoni-btn").click(peporoniOrder);
+$(".btn-Indian").click(IndianOrder);
+$("#close-summary").click(function() {
+    location.reload();
+   });
