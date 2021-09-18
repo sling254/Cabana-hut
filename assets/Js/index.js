@@ -131,19 +131,8 @@ function peporoniOrder(){
     displayPrice =ui.getPrice(peporoniOrder);
     ui.displayPrice(displayPrice);
     ui.displaySummary(peporoniOrder,displayPrice)
-
-    
-    
-
-    
-
-    
-    
-
-
-
-
 }
+
 
 //add event listener
 $(".peporoni-btn").click(peporoniOrder);
