@@ -52,3 +52,26 @@ https://sling254.github.io/Cabana-hut/
 ## License :link:
 * see [LICENSE](https://github.com/sling254/Cabana-hut/blob/main/LICENSE) file
 
+* # Pizza Prices
+- Small Pizza @ 700
+- Medium Pizza @ 1000
+- Large Pizza @ 2000
+
+* # Topping Prices
+## Small
+- Pineapple @ 250
+- Beef @ 300
+- Pork @ 350
+## Medium
+- Pineapple @ 350
+- Beff @ 350
+- Pork @ 450
+
+## Large
+- Pineapple @ 400
+- Beef @ 400
+- Pork @500
+
+
+
+
