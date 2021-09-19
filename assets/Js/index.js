@@ -132,7 +132,7 @@ function peporoniOrder(){
     ui.displayPrice(displayPrice);
     ui.displaySummary(peporoniOrder,displayPrice)
 }
-function IndianOrder(){
+function indianOrder(){
     indianQuantity=$("#indian-quantity").val();
     indianSize = $("#indian-size").val();
     Crust = $("#indian-crust").val();
@@ -151,11 +151,32 @@ function IndianOrder(){
     ui.displaySummary(indianOrder,displayPrice)
 
 }
+function hawaiianOrder() {
+    hawaiiaQuantity=$("#hawaiia-quantity").val();
+    hawaiiaSize = $("#hawaiia-size").val();
+    Crust = $("#hawaiia-crust").val();
+    delivery = $("#delivery-hawaiia").val();
+    console.log("this is the delivery"+ delivery);
+    var toppings = [];
+    $.each($("input[name='hawaiia']:checked"), function(){
+        toppings.push($(this).val());
+    });
+    console.log(toppings);
+    const hawaiianOrder = new CreteOrder(hawaiiaQuantity,hawaiiaSize,toppings,Crust,delivery);
+    console.log(hawaiianOrder);
+    ui.getPrice(hawaiianOrder);    
+    displayPrice =ui.getPrice(hawaiianOrder);
+    ui.displayPrice(hawaiianOrder);
+    ui.displaySummary(hawaiianOrder,displayPrice)
+
+    
+}
 
 
 //add event listener
 $(".peporoni-btn").click(peporoniOrder);
-$(".btn-Indian").click(IndianOrder);
+$(".btn-Indian").click(indianOrder);
+$(".hawaiian-btn").click(hawaiianOrder);
 $("#close-summary").click(function() {
     location.reload();
    });

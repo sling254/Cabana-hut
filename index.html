@@ -259,13 +259,13 @@
             <div class="card mb-3 mx-auto d-block" style="width: 18rem;">
               <img src="./assets/img/crispycrust.jpg" class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title">Chicken Hawaiian Pizza.</h5>
+                <h5 class="card-title">Hawaiian Pizza.</h5>
                 <p class="card-text">This awesomely thin and crispy pizza crust requires only a few ingredients and about 30 minutes to make.</p>
                 <span id="price">Ksh.1000</span>
                 <div class="row">
                   <div class="col">
                     <label for="">Quantity :</label>
-                    <select class="form-select">
+                    <select class="form-select" id="hawaiia-quantity">
                       <option value="1">One</option>
                       <option value="2">Two</option>
                       <option value="3">Three</option>
@@ -280,10 +280,10 @@
                   </div>
                   <div class="col">
                     <label for="">SIZE :</label>
-                    <select class="form-select">
-                      <option value="1">Small</option>
-                      <option value="2">Medium</option>
-                      <option value="3">Large</option>
+                    <select class="form-select" id="hawaiia-size">
+                      <option value="small">Small</option>
+                      <option value="medium">Medium</option>
+                      <option value="large">Large</option>
                     </select> 
                   </div>                  
                 </div>
@@ -291,26 +291,47 @@
                 <div class="row">
                   <label for="">TOPPING :</label>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox">
+                    <input class="form-check-input" type="checkbox" name="hawaiia" value="pineapple">
                     <label class="form-check-label" >
                       Pineapple
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" >
+                    <input class="form-check-input" type="checkbox" name="hawaiia" value="beef">
                     <label class="form-check-label" >
                       Beef
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" >
+                    <input class="form-check-input" type="checkbox" name="hawaiia" value="pork">
                     <label class="form-check-label" >
                       Pork
                     </label>
                   </div>
                 </div>
+                <br><div class="row">
+                  <div class="form-group">
+                    <label class="form-label">Choose Crust</label>
+                    <select class="form-select" id="hawaiia-crust" >
+                      <option value="glutenfree">Gluten-free</option>
+                      <option value="crispy">Crispy</option>
+                      <option value="stufedcrust">Stuffed</option>
+                    </select> 
+                    
+                  </div>
+                </div>
                 <br>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <div class="row">
+                  <div class="form-group">
+                    <label class="form-label">Do you want your order delivered?</label>
+                    <select class="form-select" id="delivery-hawaiia">
+                      <option value="no">NO</option>
+                      <option value="yes">YES</option>
+                    </select>                    
+                  </div>
+                </div>                
+                <br>                
+                <button type="button" class="btn btn-primary hawaiian-btn" data-bs-toggle="modal" id="hawaiian-btn" data-bs-target="#summary">
                   Place Order
                 </button>
               </div>
