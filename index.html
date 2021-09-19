@@ -93,6 +93,7 @@
           <div class="col-md">
             <div class="card mb-3 mx-auto d-block" style="width: 18rem;">
               <img src="./assets/img/glutenfree.jpg" class="card-img-top" alt="...">
+            <form id="form-1">
               <div class="card-body">
                 <h5 class="card-title">Peporoni Pizza</h5>
                 <p class="card-text">This pizza crust is thin, perfectly crisp on the edges and tender in the center, requires only 7 ingredients and it is so delicious.</p>
@@ -153,24 +154,29 @@
                       <option value="crispy">Crispy</option>
                       <option value="stufedcrust">Stuffed</option>
                     </select> 
-                    
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group">
                     <label class="form-label">Do you want your order delivered?</label>
-                    <select class="form-select" id="delivery">
+                    
+                    <select class="form-select location-toggle" id="delivery">
                       <option value="no">NO</option>
                       <option value="yes">YES</option>
                     </select>                    
                   </div>
+                  <div class="form-group col-12 d-none">
+                    <label for="">Location</label>
+                    <input type="text" placeholder="Enter Location" class="form-control">
+                  </div>
                 </div>                
                 <br>
-                <button type="button" class="btn btn-primary peporoni-btn" data-bs-toggle="modal" data-bs-target="#summary">
+                <button type="submit" class="btn btn-primary peporoni-btn" data-bs-toggle="modal" data-bs-target="#summary">
                   Place Order
                 </button>
                 
               </div>
+          </form>
             </div>
           </div>
           <div class="col-md mb-3 ">
@@ -438,7 +444,7 @@
 
     <!-- Checkout Section --> 
     <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#homedelivey">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" >
   Launch demo modal
 </button>
 
@@ -473,7 +479,7 @@
 
 
 
-    <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-target="#homedelivey">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">

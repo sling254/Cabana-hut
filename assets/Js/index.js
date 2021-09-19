@@ -33,7 +33,7 @@ class UI{
        function deliveryNote(){
            if (order.deliverynote === "no"){
                price
-           }else{
+           }else{    
                price +=250;
            }
        }
@@ -113,11 +113,15 @@ class UI{
 const ui = new UI();
 
 
-function peporoniOrder(){
+function peporoniOrder(e){
+    e.preventDefault();
     peporoniQuantity = $("#glutenfree-quantity").val();
     glutenFreeSize = $("#glutenfree-size").val();
     crust = $("#crust").val();
-    delivery = $("#delivery").val();    
+    delivery = $("#delivery").val();
+    console.log(delivery);
+    
+      
     console.log("this is the delivery"+ delivery);
     var toppings = [];
     $.each($("input[name='peporoni']:checked"), function(){
@@ -173,10 +177,32 @@ function hawaiianOrder() {
 }
 
 
+function handleLoctionToggle() {
+    $(".location-toggle").change(function(e){
+        let val = $(this).val();
+        alert(val)
+
+        if(val == "yes"){
+            $(this).parent().siblings().removeClass("d-none")
+        }
+        else{
+            $(this).parent().siblings().addClass("d-none")
+        }
+    })
+}
+
 //add event listener
-$(".peporoni-btn").click(peporoniOrder);
+/* $(".peporoni-btn").click(peporoniOrder); */
+$("#form-1").submit(peporoniOrder);
 $(".btn-Indian").click(indianOrder);
 $(".hawaiian-btn").click(hawaiianOrder);
+
+
 $("#close-summary").click(function() {
     location.reload();
    });
+
+
+   $(document).ready(function() {
+       handleLoctionToggle();
+   })
