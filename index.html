@@ -97,7 +97,7 @@
               <div class="card-body">
                 <h5 class="card-title">Peporoni Pizza</h5>
                 <p class="card-text">This pizza crust is thin, perfectly crisp on the edges and tender in the center, requires only 7 ingredients and it is so delicious.</p>
-                <h3 id="gluttenprice"></h3>
+                
                 <div class="row">
                   <div class="col">
                     <label class="for-label" >Quantity :</label>
@@ -158,8 +158,7 @@
                 </div>
                 <div class="row">
                   <div class="form-group">
-                    <label class="form-label">Do you want your order delivered?</label>
-                    
+                    <label class="form-label">Do you want your order delivered? <small>@250</small></label>                    
                     <select class="form-select location-toggle" id="delivery">
                       <option value="no">NO</option>
                       <option value="yes">YES</option>
@@ -167,7 +166,7 @@
                   </div>
                   <div class="form-group col-12 d-none">
                     <label for="">Location</label>
-                    <input type="text" placeholder="Enter Location" class="form-control">
+                    <input type="text" placeholder="Enter Location" class="form-control" id="delivarylocation" >
                   </div>
                 </div>                
                 <br>
@@ -185,7 +184,7 @@
               <div class="card-body">
                 <h5 class="card-title">Indian Pizza</h5>
                 <p class="card-text">Stuffed crust pizza is pizza with cheese or other ingredients added into the outer edge of the crust. The stuffed crust pizza was popularized by Pizza Hut, which debuted this style of pizza in 1995.</p>
-                <span id="price">Ksh.1000</span>
+                
                 <div class="row">
                   <div class="col">
                     <label for="">Quantity :</label>
@@ -247,11 +246,15 @@
                 </div>
                 <div class="row">
                   <div class="form-group">
-                    <label class="form-label">Do you want your order delivered?</label>
-                    <select class="form-select" id="delivery-indian">
+                    <label class="form-label">Do you want your order delivered? <small>@250</small></label>
+                    <select class="form-select location-toggle" id="delivery-indian">
                       <option value="no">NO</option>
                       <option value="yes">YES</option>
                     </select>                    
+                  </div>
+                  <div class="form-group col-12 d-none">
+                    <label for="">Location</label>
+                    <input type="text" placeholder="Enter Location" class="form-control" id="delivarylocation-indian" >
                   </div>
                 </div>
                 <br>
@@ -264,6 +267,7 @@
           <div class="col-md ">
             <div class="card mb-3 mx-auto d-block" style="width: 18rem;">
               <img src="./assets/img/crispycrust.jpg" class="card-img-top" alt="...">
+            <form id="form-2">
               <div class="card-body">
                 <h5 class="card-title">Hawaiian Pizza.</h5>
                 <p class="card-text">This awesomely thin and crispy pizza crust requires only a few ingredients and about 30 minutes to make.</p>
@@ -329,18 +333,23 @@
                 <br>
                 <div class="row">
                   <div class="form-group">
-                    <label class="form-label">Do you want your order delivered?</label>
-                    <select class="form-select" id="delivery-hawaiia">
+                    <label class="form-label">Do you want your order delivered? <small>@250</small></label>
+                    <select class="form-select location-toggle" id="delivery-hawaiia">
                       <option value="no">NO</option>
                       <option value="yes">YES</option>
                     </select>                    
                   </div>
+                  <div class="form-group col-12 d-none">
+                    <label for="">Location</label>
+                    <input type="text" placeholder="Enter Location" class="form-control" id="delivarylocation-hawaii" >
+                  </div>
                 </div>                
                 <br>                
-                <button type="button" class="btn btn-primary hawaiian-btn" data-bs-toggle="modal" id="hawaiian-btn" data-bs-target="#summary">
+                <button type="submit" class="btn btn-primary hawaiian-btn" data-bs-toggle="modal" id="hawaiian-btn" data-bs-target="#summary">
                   Place Order
                 </button>
               </div>
+            </form>
             </div>
           </div>
         </div>

@@ -1,23 +1,30 @@
-
-
-
 class CreteOrder{
-    constructor(quantity,size,topping,crust,deliverynote){
+    constructor(quantity,size,topping,crust,deliverynote,delivarylocation){
         this.quantity = quantity;
         this.size = size;
         this.topping = topping;
         this.crust = crust;
         this.deliverynote = deliverynote;
+        this.delivarylocation =delivarylocation;
     }
 }
-
 class UI{
+    handleLoctionToggle() {
+        $(".location-toggle").change(function(e){
+            let toDelivery = $(this).val();
+            if(toDelivery == "yes"){
+                $(this).parent().siblings().removeClass("d-none")         
+                
+            }
+            else{
+                $(this).parent().siblings().addClass("d-none")
+            }
+        })
+    }
     getPrice(order){
         let price = 0;
         let quantity = parseInt(order.quantity);
-        let toppings = order.topping
-        let crust =order.crust;
-        console.log(crust);
+        let toppings = order.topping;
        function checkCrust(){
         if (order.crust === "crispy"){
             price +=250;
@@ -81,28 +88,20 @@ class UI{
                 price +=500;
             }        
         }
-       
-        console.log("ycbdhc"+price);
-
         return price;
-        
-        
 
     }
 
-    displayPrice(a){
-        $("#gluttenprice").text(`Ksh.${a}`)
-
-    }
+    
     displaySummary(order,displayPrice){
         const summaryCheckout = $(".summary-checkout")
-        const div = document.createElement("div");
+        const div = document.createElement("div");        
         div.innerHTML=`
         <h5> Crust:- ${order.crust}</h5>
         <h5>Quantity:- ${order.quantity}</h5>
         <h5>Size:- ${order.size}</h5>
         <h5>Toppings:- ${order.topping}</h5>
-        <h5>Delivery @:- kigali</h5>
+        <h5>Delivery @:- ${order.delivarylocation}</h5>
         <h1>TOTAL PRICE:- ${displayPrice} </h1>
         `
         summaryCheckout.append(div);  
@@ -112,97 +111,72 @@ class UI{
 //instanciate the Ui class
 const ui = new UI();
 
+$(document).ready(function() {
+    ui.handleLoctionToggle();
 
-function peporoniOrder(e){
-    e.preventDefault();
-    peporoniQuantity = $("#glutenfree-quantity").val();
-    glutenFreeSize = $("#glutenfree-size").val();
-    crust = $("#crust").val();
-    delivery = $("#delivery").val();
-    console.log(delivery);
-    
-      
-    console.log("this is the delivery"+ delivery);
-    var toppings = [];
-    $.each($("input[name='peporoni']:checked"), function(){
-        toppings.push($(this).val());
-    });
-    console.log(toppings);
-    //instanciate
-    const peporoniOrder = new CreteOrder(peporoniQuantity,glutenFreeSize,toppings,crust,delivery);    
-    console.log(peporoniOrder);
-    ui.getPrice(peporoniOrder);    
-    displayPrice =ui.getPrice(peporoniOrder);
-    ui.displayPrice(displayPrice);
-    ui.displaySummary(peporoniOrder,displayPrice)
-}
-function indianOrder(){
-    indianQuantity=$("#indian-quantity").val();
-    indianSize = $("#indian-size").val();
-    Crust = $("#indian-crust").val();
-    delivery = $("#delivery-indian").val();
-    console.log("this is the delivery"+ delivery);
-    var toppings = [];
-    $.each($("input[name='indian']:checked"), function(){
-        toppings.push($(this).val());
-    });
-    console.log(toppings);
-    const indianOrder = new CreteOrder(indianQuantity,indianSize,toppings,Crust,delivery);
-    console.log(indianOrder);
-    ui.getPrice(indianOrder);    
-    displayPrice =ui.getPrice(indianOrder);
-    ui.displayPrice(displayPrice);
-    ui.displaySummary(indianOrder,displayPrice)
-
-}
-function hawaiianOrder() {
-    hawaiiaQuantity=$("#hawaiia-quantity").val();
-    hawaiiaSize = $("#hawaiia-size").val();
-    Crust = $("#hawaiia-crust").val();
-    delivery = $("#delivery-hawaiia").val();
-    console.log("this is the delivery"+ delivery);
-    var toppings = [];
-    $.each($("input[name='hawaiia']:checked"), function(){
-        toppings.push($(this).val());
-    });
-    console.log(toppings);
-    const hawaiianOrder = new CreteOrder(hawaiiaQuantity,hawaiiaSize,toppings,Crust,delivery);
-    console.log(hawaiianOrder);
-    ui.getPrice(hawaiianOrder);    
-    displayPrice =ui.getPrice(hawaiianOrder);
-    ui.displayPrice(hawaiianOrder);
-    ui.displaySummary(hawaiianOrder,displayPrice)
-
-    
-}
-
-
-function handleLoctionToggle() {
-    $(".location-toggle").change(function(e){
-        let val = $(this).val();
-        alert(val)
-
-        if(val == "yes"){
-            $(this).parent().siblings().removeClass("d-none")
+    function peporoniOrder(e){
+        e.preventDefault();
+        peporoniQuantity = $("#glutenfree-quantity").val();
+        glutenFreeSize = $("#glutenfree-size").val();
+        crust = $("#crust").val();
+        delivery = $("#delivery").val();
+        delivarylocation =$("#delivarylocation").val();
+        var toppings = [];
+        $.each($("input[name='peporoni']:checked"), function(){
+            toppings.push($(this).val());
+        });
+        //instanciate
+        const peporoniOrder = new CreteOrder(peporoniQuantity,glutenFreeSize,toppings,crust,delivery,delivarylocation);
+        ui.getPrice(peporoniOrder);    
+        displayPrice =ui.getPrice(peporoniOrder);
+        
+        ui.displaySummary(peporoniOrder,displayPrice)
         }
-        else{
-            $(this).parent().siblings().addClass("d-none")
-        }
-    })
-}
 
-//add event listener
-/* $(".peporoni-btn").click(peporoniOrder); */
-$("#form-1").submit(peporoniOrder);
-$(".btn-Indian").click(indianOrder);
-$(".hawaiian-btn").click(hawaiianOrder);
+        /* Indian Order */
+    function indianOrder(){
+        indianQuantity=$("#indian-quantity").val();
+        indianSize = $("#indian-size").val();
+        Crust = $("#indian-crust").val();
+        delivery = $("#delivery-indian").val();
+        delivarylocation =$("#delivarylocation-indian").val();
+        var toppings = [];
+        $.each($("input[name='indian']:checked"), function(){
+            toppings.push($(this).val());
+        });
+        const indianOrder = new CreteOrder(indianQuantity,indianSize,toppings,Crust,delivery,delivarylocation);    
+        ui.getPrice(indianOrder);    
+        displayPrice =ui.getPrice(indianOrder);
+        ui.displaySummary(indianOrder,displayPrice)
+
+    }
+
+        /* Hawaiia Order */
+    function hawaiianOrder(e) {
+        e.preventDefault();
+        hawaiiaQuantity=$("#hawaiia-quantity").val();
+        hawaiiaSize = $("#hawaiia-size").val();
+        Crust = $("#hawaiia-crust").val();
+        delivery = $("#delivery-hawaiia").val();
+        delivarylocation =$("#delivarylocation-hawaii").val();    
+        var toppings = [];
+        $.each($("input[name='hawaiia']:checked"), function(){
+            toppings.push($(this).val());
+        });
+        const hawaiianOrder = new CreteOrder(hawaiiaQuantity,hawaiiaSize,toppings,Crust,delivery,delivarylocation);    
+        ui.getPrice(hawaiianOrder);    
+        displayPrice =ui.getPrice(hawaiianOrder);
+        ui.displaySummary(hawaiianOrder,displayPrice)
+        
+    }
+    //add event listener
+    $("#form-1").submit(peporoniOrder);
+    $(".btn-Indian").click(indianOrder);
+    $("#form-2").submit(hawaiianOrder);
+    /* refresh page */
+    $("#close-summary").click(function() {
+        location.reload();
+    });
 
 
-$("#close-summary").click(function() {
-    location.reload();
-   });
-
-
-   $(document).ready(function() {
-       handleLoctionToggle();
-   })
+});
